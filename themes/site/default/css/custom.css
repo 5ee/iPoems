@@ -1,0 +1,154 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+.container{
+	max-width:1003px;
+}
+.navbar {
+  margin-bottom: 20px;
+}
+#light-overlay{
+	position:fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	z-index:9999;
+	display:none;
+}
+#light,
+.fb-like{
+	position:relative;
+	z-index:9999;
+	text-decoration:none;
+	outline:none;
+}
+.video-play{
+	position:relative;
+	text-align:center;
+	margin:0 0 10px;
+	z-index:9999;
+    width:100%;
+    height:380px;
+}
+	.video-overlay{
+		position:absolute;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		width:100%;
+		height:100%;
+		background:rgba(0,0,0, 0.4);
+	}
+	.video-overlay-info{
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin:-160px 0 0 -150px;
+		width:300px;
+	}
+	.video-play .progress{
+		margin:10px 0;
+	}
+	.click-here{
+		color:#fff;
+		font-size:14px;
+		font-weight:bold;
+	}
+	.click-here:hover{
+		text-decoration:none;
+		color: #CD1919;
+	}
+.video-overlay-info2{
+	position:absolute;
+	left:0;
+	top:0;
+	padding:20px;
+	color:#fff;
+}
+
+
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(0, 0, 0, 0.55);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align:center;
+    color:#fff !important;
+    z-index:2;
+}
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+.next-video-wrap{
+	text-align:right;
+	padding:6px 0 0;
+}
+
+/**Div containing the color of the stars */
+.jRatingAverage {
+	background-color:#f62929;
+	position:relative;
+	top:0;
+	left:0;
+	z-index:2;
+	height:100%;
+}
+.jRatingColor {
+	background-color:#f4c239; /* bgcolor of the stars*/
+	position:relative;
+	top:0;
+	left:0;
+	z-index:2;
+	height:100%;
+}
+
+/** Div containing the stars **/
+.jStar {
+	position:relative;
+	left:0;
+	z-index:3;
+}
+
+/** P containing the rate informations **/
+p.jRatingInfos {
+	position:		absolute;
+	z-index:9999;
+	background:	transparent url('/libs/ajax-rating/icons/bg_jRatingInfos.png') no-repeat;
+	color:			#FFF;
+	display:		none;
+	width:			91px;
+	height:			29px;	
+	font-size:16px;
+	text-align:center;
+	padding-top:5px;
+}
+	p.jRatingInfos span.maxRate {
+		color:#c9c9c9;
+		font-size:14px;
+	}
+   .clr-star{
+	   color:#FC0}     
+        

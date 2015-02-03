@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<XML>
+    <Account_Registration>
+        <subject>Your account Free at VideosBasket</subject>
+        <message>Hi **acountname** , you registered an account at VideosBasket system.
+            Your password is: **password** .
+            Thanks so much!
+        </message>
+    </Account_Registration> 
+    
+    <Contact_Us>
+        <subject>**subject** from **useremail**</subject>
+        <message> **acountname** , had send email!
+            Content: **message**
+            
+        </message>
+    </Contact_Us> 
+    
+  
+</XML>
+
+    

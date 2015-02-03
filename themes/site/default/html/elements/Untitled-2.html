@@ -1,0 +1,252 @@
+<div id="header-wrap">
+                <!--header-top-wrap -->
+                <div class="container">
+                    <header id="header" class="clearfix">
+                        <div id="logo"><a href="<?php echo main_url; ?>"><img src="<?php echo main_url; ?><?php echo website_logo ?>" alt=""></a></div>
+
+                        <div id="nav-wrap">
+                            <a href="#" id="menu"><img src="<?php echo main_url; ?>/themes/site/<?php echo theme_name; ?>/images/menu-btn.png" alt=""></a>
+                            <nav>
+                                <ul id="nav">
+                                    <li class="nav-first"><a href="<?php echo main_url; ?>/recently_added_videos" data-toggle="tooltip" data-placement="bottom" title="View Recently Added Videos">Recent Videos</a></li>
+                                    <li><a href="<?php echo main_url; ?>/popular_videos" data-toggle="tooltip" data-placement="bottom" title="View Most Popular Videos">Popular Videos</a></li>
+                                    <!--     <li class="dropdown">
+                                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Stuffs<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="<?php echo main_url . '/most_view_videos'; ?>"><i class="icon-chevron-right"></i> Most Views</a></li>
+                                                    <li><a href="<?php echo main_url . '/most_rated_videos'; ?>"><i class="icon-chevron-right"></i> Most Rated</a></li>
+                                                    <li><a href="<?php echo main_url . '/most_liked_videos'; ?>"><i class="icon-chevron-right"></i> Most Liked</a></li>
+                                                    <li><a href="<?php echo main_url . '/recently_added_videos'; ?>"><i class="icon-chevron-right"></i> Recently Added</a></li>
+                                    <?php //foreach ($this->categories as $category) { ?>
+                                                   
+                                                    <li><a href="<?php //echo main_url;       ?>/category/<?php //echo $category['category_slug'];    ?>"><?php // echo $category['category_name'];    ?></a></li>
+                                                 
+                                    <?php // } ?>                                
+        
+        
+                                                </ul>
+                                            </li>
+                                    -->
+                                    <li class="last-item"><a href="<?php echo main_url; ?>/video/<?php echo $this->random_video[0]; ?>" class="play-random" data-toggle="tooltip" data-placement="bottom" title="Play a Random Video">Play Random</a></li>
+
+
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <?php if (isset($_SESSION['fbid'])) { ?>
+
+                            <div class="logged-section" style="float:right; text-align:left;width:180px;"> 	 
+                                <a href="#" class="user"><img width="30" height="30" class="img-circle" src="https://graph.facebook.com/<?php echo $_SESSION['fbid']; ?>/picture?type=small" alt=""></a> 
+                                <span><?php echo $_SESSION['uname']; ?></span>
+
+                                <!-- action of user when logined -->
+                                <div class="dropdown" style="float:right">
+                                    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-arrow-down"> </i> </a>
+                                    <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/edit_profile">Edit Profile</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/videos_i_like">Videos I like</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/watch_later_videos">Watch Later Videos</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/logout">Logout</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end -->
+
+                            </div>
+
+                            <?php
+                        }
+                        elseif (isset($_SESSION['user_id'])) {
+                            ?>
+
+                            <div class="logged-section" style="float:right; text-align:left;width:180px;"> 
+                                <?php
+                                $user_logo = "http://placehold.it/24x24";
+                                if ($_SESSION['picture']) {
+                                    $user_logo = main_url . "/uploads/picture_poems/" . $_SESSION['picture'];
+                                }
+                                ?>
+                                <a href="#" class="user"><img width="30" height="30" class="img-circle" src="<?php echo $user_logo; ?>" alt="Avatar"></a> 
+                                <span><?php echo $_SESSION['fullname']; ?></span>
+                                <!-- action of user when logined -->
+                                <div class="dropdown" style="float:right">
+                                    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-arrow-down"> </i> </a>
+                                    <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/edit_profile">Edit Profile</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/videos_i_like">Videos I like</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/watch_later_videos">Watch Later Videos</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo main_url; ?>/logout">Logout</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end -->
+                            </div>
+
+                            <?php
+                        }
+                        else {
+                            ?>
+
+
+                            <div class="group-btn-add"> 
+                                <a id="login_link" class="btn btn-primary" href="#LoginModal" data-toggle="modal" data-placement="bottom" >Login</a></li>
+                                <a class="btn btn-primary" href="<?php echo main_url . "/register" ?>">Sign up</a></li>
+                            </div>
+                        <?php } ?>
+
+
+
+                    </header>
+                </div>
+
+                <div class="header-top-wrap">
+                    <div class="container">
+                        <div class="header-top clearfix">
+                            <div class="search-wrap">
+                                <div id="search-section">
+                                    <form name="csrf_form" autocomplete="off" action="<?php echo main_url ?>/search" method="POST">
+                                     <!--   <input type="hidden"  name="csrf_token" value="<?php echo $this->formtoken; ?>"> -->
+                                        <input type="text" id="keyword"  name="keyword" value="" placeholder="Search"  class="search-field">
+                                        <input id="btn_search" type="submit" value="" class="submit">
+                                    </form>
+                                    <div class="cl"></div>
+                                </div>
+                            </div>
+
+                            <!-- include social top -->
+                            <div class="social-top">
+                                <div class="social-bar">
+                                    <a href="<?php echo fb_page_url ?>" data-toggle="tooltip" data-placement="bottom" title="Follow us on Facebook">
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="<?php echo twitter_url ?>" data-toggle="tooltip" data-placement="bottom" title="Follow us on Twitter">
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="<?php echo pinterest_url ?>" data-toggle="tooltip" data-placement="bottom" title="Follow us on Pinterest">
+                                        <i class="icon-pinterest"></i>
+                                    </a>
+                                    <a href="<?php echo youtube_url ?>" data-toggle="tooltip" data-placement="bottom" title="Youtube">
+                                        <i class="icon-youtube"></i>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Follow us on RSS">
+                                        <i class="icon-rss"></i>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <!-- end social top -->
+
+
+                        </div>
+                    </div>
+                    <!-- include login modal form -->
+
+                    <div class="modal hide" id="LoginModal" style="width:400px; margin-left: -150px;/*width:780px;height:auto; margin-left: -380px;*/">
+                        <div class="modal-header" style="margin:10px; border-bottom:1px solid #ccc;">
+                            <button type="button" class="close" data-dismiss="modal">x</button>
+                            <h3 style="color:#333333; margin-left: 40px;"><?php echo USER_LOGIN; ?></h3>
+                        </div>
+                        <div class="modal-body" style="margin-left: 50px">
+                            <div style="/*width:760px;*/">
+                                <div style="/*width:300px; padding-right:10px; float:left; border-right:1px dotted #cccccc;*/">
+                                    <h3 style="margin:0px 0 10px; font-size:18px"><?php echo SIGN_IN_TO; ?> VideosBasket</h3>
+                                    <form method="post" action='<?php echo main_url; ?>/login' name="csrf_form" id="login_form" data-validate="parsley">
+                                        <input type="hidden"  name="csrf_token" value="<?php echo $this->formtoken; ?>">
+                                        <p>
+                                            <input type="text" class="span3" name="data[email]" id="email" data-type="email" placeholder="<?php echo EMAIL; ?>" data-trigger="change" data-required="true" autocomplete="off">
+                                        </p>
+                                        <p>
+                                            <input type="password" class="span3" name="data[password]" placeholder="<?php echo PASSWORD; ?>" autocomplete="off" data-required="true">
+                                        </p>
+                                        <p>
+                                            <button type="submit" class="btn btn-success"><?php echo SIGN_IN; ?></button>
+                                        </p>
+                                    </form>
+                                    <p><?php echo OR_LOGIN_USING; ?>:</p>
+
+                                    <div class="span3" style="margin: 0; padding-bottom: 5px;"> <a href="<?php echo $this->loginUrl; ?>" class="btn btn-primary btn-large btn-block"><i class="icon-facebook"></i> <?php echo CONNECT_WTIH_FACEBOOK; ?></a> </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end login popup-->
+                </div>
+            </div>
+            
+            
+            <?php if (empty($_GET)) { ?>
+
+                <div class="testimonial-section-wrap">
+                    <div class="container"> 
+                        <div class="testimonial-section">
+                            <div id="myCarousel" class="carousel slide">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+
+
+
+
+                                    <div class="item active">
+                                        <div class="row-fluid">
+
+                                            <?php
+                                            $j = 1;
+                                            foreach ($this->latest_carousel_videos as $k => $late_videos) {
+                                                ?>
+
+                                                <div class="span2">
+                                                    <div class="carousel-section">
+                                                        <a href="<?php echo main_url; ?>/video/<?php echo $late_videos['Video_Slug']; ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $late_videos['Video_Name']; ?>">
+                                                            <img src="http://img.youtube.com/vi/<?php echo $late_videos['Video_URL']; ?>/2.jpg" alt="<?php echo $late_videos['Video_Name']; ?>" title="<?php echo $late_videos['Video_Name']; ?>" width="140" height="120" class="img-polaroid" />
+                                                            <img src="<?php echo main_url; ?>/themes/site/<?php echo theme_name; ?>/images/play-btn.png"  width="100" height="95"  alt="" class="play">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <?php if ($j % 6 == 0 && $k < 17) { ?>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="row-fluid">
+                                                    <?php
+                                                } $j++;
+                                            }
+                                            ?>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div><!--/carousel-inner-->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                            </div><!--/myCarousel-->
+                        </div>    
+                    </div>    
+                </div><!--/well-->
+
+            <?php } ?>
+
+
+
+
+
+            <!--/well-->
+
+
+            <!--<div id="top-add-section">
+                    <div class="container">
+                    <div class="top-adds">
+                            <div class="row-fluid">
+                            <div class="span3"><a href="#" class="first"><img src="<?php echo main_url; ?>/themes/site/<?php echo theme_name; ?>/images/add-1.jpg" alt=""></a></div>
+                            <div class="span9"><a href="#"><img src="<?php echo main_url; ?>/themes/site/<?php echo theme_name; ?>/images/add-2.jpg" alt=""></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
